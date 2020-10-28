@@ -1,0 +1,10 @@
+{
+    "rules": {
+        ".read": true,
+        ".write": true,
+        "restaurants": {
+            // Index each location's geohash for faster querying
+            ".indexOn": ["g"]
+        }
+    }
+}

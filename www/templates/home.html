@@ -1,0 +1,48 @@
+<ion-view view-title="IonGeoFire">
+
+    <ion-nav-bar class="bar-stable" align-title="center">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+        <ion-nav-buttons side="left">
+            <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right" class="button26">
+            <button class="button button-icon button-clear ion-ios-gear" ng-click="filter()" id="edit-button">
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+
+                    <ion-google-place placeholder="Enter an address, Apt# and ZIP"
+                                      ng-model="location"
+                                      current-location="true"
+                                      location-changed="locationChangedCallback"/>
+            </label>
+        </div>
+
+
+        <ion-list class="list-home">
+
+            <ion-item ng-repeat="item in list track by $index" class="item-avatar">
+
+                <img ng-src="img/icons/{{item.img}}">
+                <h2>{{item.name}}</h2>
+                <p>At {{item.distance}} km</p>
+
+                <ion-option-button class="button-positive icon ion-map" ng-click="showMap(item)"></ion-option-button>
+            </ion-item>
+
+            <ion-item ng-if="ready && list.length == 0">
+                <p>No results in your location.</p>
+            </ion-item>
+
+        </ion-list>
+
+    </ion-content>
+</ion-view>
