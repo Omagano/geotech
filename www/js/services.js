@@ -17,7 +17,7 @@ angular.module('starter.services', [])
 .service('FirebaseServices', function (Firebase, $firebaseArray, $q) {
 
     var service  = this,
-		database = Firebase.database().ref("restaurants"),
+		database = Firebase.database().ref("points"),
 		objects	 = $firebaseArray(database);
 
 	service.getByGeo = function (lat, lng, radius) {
