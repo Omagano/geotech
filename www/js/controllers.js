@@ -20,9 +20,9 @@ angular.module('starter.controllers', [])
 
 		geoQuery.on("key_entered", function (key, location, distance) {
 			$timeout(function () {
-				FirebaseServices.get(key).then(function (restaurant) {
-					restaurant.distance = distance.toFixed(2);
-					$scope.list.push(restaurant);
+				FirebaseServices.get(key).then(function (point) {
+					PermissionRequest.distance = distance.toFixed(2);
+					$scope.list.push(point);
 					$scope.list = uniqueArray($scope.list, '$id');
 				});
 			}, 300);
